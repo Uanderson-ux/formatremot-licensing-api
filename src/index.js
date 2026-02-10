@@ -15,6 +15,11 @@ fastify.get('/', async (request, reply) => {
   return { hello: 'world' };
 });
 
+// Health check
+fastify.get('/health', async (request, reply) => {
+  return { ok: true };
+});
+
 // Endpoint /validate
 fastify.post('/validate', async (request, reply) => {
   const { email } = request.body || {};
