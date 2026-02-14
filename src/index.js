@@ -116,7 +116,7 @@ fastify.post('/webhook/kiwify', async (request, reply) => {
     if (action === 'activate') {
       result = await supabase
         .from('licenses')
-        .upsert({ email: email, updated_at: new Date() }, { onConflict: 'email' });
+        .upsert({ email: email }, { onConflict: 'email' });
     } else {
       result = await supabase
         .from('licenses')
